@@ -132,6 +132,55 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Supermarket.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Supermarket.DataTransferModels": "1.0.0",
+          "Supermarket.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Supermarket.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Supermarket.Abstractions.dll": {}
+        }
+      },
+      "Supermarket.DataTransferModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Supermarket.DataTransferModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Supermarket.DataTransferModels.dll": {}
+        }
+      },
+      "Supermarket.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Supermarket.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Supermarket.Domain.dll": {}
+        }
+      },
+      "Supermarket.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "Supermarket.Abstractions": "1.0.0",
+          "Supermarket.DataTransferModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Supermarket.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Supermarket.Services.dll": {}
+        }
       }
     }
   },
@@ -569,12 +618,34 @@
         "swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Supermarket.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../Supermarket.Abstractions/Supermarket.Abstractions.csproj",
+      "msbuildProject": "../Supermarket.Abstractions/Supermarket.Abstractions.csproj"
+    },
+    "Supermarket.DataTransferModels/1.0.0": {
+      "type": "project",
+      "path": "../Supermarket.DataTransferModels/Supermarket.DataTransferModels.csproj",
+      "msbuildProject": "../Supermarket.DataTransferModels/Supermarket.DataTransferModels.csproj"
+    },
+    "Supermarket.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Supermarket.Domain/Supermarket.Domain.csproj",
+      "msbuildProject": "../Supermarket.Domain/Supermarket.Domain.csproj"
+    },
+    "Supermarket.Services/1.0.0": {
+      "type": "project",
+      "path": "../Supermarket.Services/Supermarket.Services.csproj",
+      "msbuildProject": "../Supermarket.Services/Supermarket.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "AutoMapper >= 12.0.1",
       "Microsoft.AspNetCore.OpenApi >= 7.0.2",
+      "Supermarket.DataTransferModels >= 1.0.0",
+      "Supermarket.Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
@@ -602,7 +673,14 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/Supermarket.DataTransferModels.csproj": {
+              "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/Supermarket.DataTransferModels.csproj"
+            },
+            "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Services/Supermarket.Services.csproj": {
+              "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Services/Supermarket.Services.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

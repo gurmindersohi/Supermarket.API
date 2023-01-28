@@ -17,6 +17,9 @@
 
         public ServiceResponse(string message) : this(false, message)
         { }
+
+        public ServiceResponse() : this(true, string.Empty)
+        { }
     }
 }
 

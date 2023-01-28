@@ -1,84 +1,73 @@
 ﻿namespace Supermarket.API.Controllers
 {
+    using System.ComponentModel.DataAnnotations;
     using AutoMapper;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
-    using Supermarket.API.Domain.Models;
-    using Supermarket.API.Resources;
-    using Supermarket.API.Services;
+    using Supermarket.Abstractions.Services;
     using Supermarket.API.Extensions;
+    using Supermarket.DataTransferModels.Categories;
 
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
-        private readonly IMapper _mapper;
 
-        public CategoriesController(ICategoryService categoryService, IMapper mapper)
+        public CategoriesController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
-            _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<CategoryResource>> GetAllAsync()
+        public async Task<IEnumerable<ReadDto>> GetAllAsync()
         {
             var categories = await _categoryService.ListAsync();
-
-            var resources = _mapper.Map<IEnumerable<Category>, IEnumerable<CategoryResource>>(categories);
-
-            return resources;
+            return categories;
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync([FromBody] SaveCategoryResource resource)
+        public async Task<IActionResult> PostAsync([FromBody] InsertDto insertDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
 
-            var category = _mapper.Map<SaveCategoryResource, Category>(resource);
 
-            var result = await _categoryService.SaveAsync(category);
+            var result = await _categoryService.SaveAsync(insertDto);
 
             if (!result.Success)
                 return BadRequest(result.Message);
 
-            var categoryResource = _mapper.Map<Category, CategoryResource>(result.Category);
 
-            return Ok(categoryResource);
+            return Ok(result);
 
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(int id, [FromBody] SaveCategoryResource resource)
+        public async Task<IActionResult> PutAsync(
+            [Required] [FromRoute] int id,
+            [FromBody] UpdateDto updateDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
 
-            var category = _mapper.Map<SaveCategoryResource, Category>(resource);
-            var result = await _categoryService.UpdateAsync(id, category);
+            var response = await _categoryService.UpdateAsync(id, updateDto);
 
-            if (!result.Success)
-                return BadRequest(result.Message);
+            if (!response.Success)
+                return BadRequest(response.Message);
 
-            var categoryResource = _mapper.Map<Category, CategoryResource>(result.Category);
-            return Ok(categoryResource);
+            return Ok(response);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
-            var result = await _categoryService.DeleteAsync(id);
+            var response = await _categoryService.DeleteAsync(id);
 
-            if (!result.Success)
-                return BadRequest(result.Message);
+            if (!response.Success)
+                return BadRequest(response.Message);
 
-            var categoryResource = _mapper.Map<Category, CategoryResource>(result.Category);
-            return Ok(categoryResource);
+            return Ok(response);
         }
-
-
-
     }
 }

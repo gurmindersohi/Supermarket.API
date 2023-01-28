@@ -1,0 +1,5 @@
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/obj/Debug/net7.0/Supermarket.DataTransferModels.csproj.AssemblyReference.cache
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/obj/Debug/net7.0/Supermarket.DataTransferModels.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/obj/Debug/net7.0/Supermarket.DataTransferModels.AssemblyInfoInputs.cache
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/obj/Debug/net7.0/Supermarket.DataTransferModels.AssemblyInfo.cs
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/obj/Debug/net7.0/Supermarket.DataTransferModels.csproj.CoreCompileInputs.cache
