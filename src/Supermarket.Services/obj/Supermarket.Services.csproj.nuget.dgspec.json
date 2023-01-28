@@ -64,6 +64,77 @@
         }
       }
     },
+    "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Data/Supermarket.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Data/Supermarket.Data.csproj",
+        "projectName": "Supermarket.Data",
+        "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Data/Supermarket.Data.csproj",
+        "packagesPath": "/Users/gurmindersingh/.nuget/packages/",
+        "outputPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Data/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/gurmindersingh/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Abstractions/Supermarket.Abstractions.csproj": {
+                "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Abstractions/Supermarket.Abstractions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/Supermarket.DataTransferModels.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -195,6 +266,9 @@
               "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Abstractions/Supermarket.Abstractions.csproj": {
                 "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Abstractions/Supermarket.Abstractions.csproj"
               },
+              "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Data/Supermarket.Data.csproj": {
+                "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Data/Supermarket.Data.csproj"
+              },
               "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/Supermarket.DataTransferModels.csproj": {
                 "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/Supermarket.DataTransferModels.csproj"
               }
@@ -214,6 +288,14 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [

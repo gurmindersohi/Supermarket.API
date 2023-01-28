@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.API/Supermarket.API.csproj": {}
+    "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Infrastructure/Supermarket.Infrastructure.csproj": {}
   },
   "projects": {
     "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Abstractions/Supermarket.Abstractions.csproj": {
@@ -56,83 +56,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.API/Supermarket.API.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.API/Supermarket.API.csproj",
-        "projectName": "Supermarket.API",
-        "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.API/Supermarket.API.csproj",
-        "packagesPath": "/Users/gurmindersingh/.nuget/packages/",
-        "outputPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.API/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/Users/gurmindersingh/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/Supermarket.DataTransferModels.csproj": {
-                "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/Supermarket.DataTransferModels.csproj"
-              },
-              "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Services/Supermarket.Services.csproj": {
-                "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Services/Supermarket.Services.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "dependencies": {
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[12.0.1, )"
-            },
-            "Microsoft.AspNetCore.OpenApi": {
-              "target": "Package",
-              "version": "[7.0.2, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.5.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -298,6 +221,73 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Infrastructure/Supermarket.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Infrastructure/Supermarket.Infrastructure.csproj",
+        "projectName": "Supermarket.Infrastructure",
+        "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Infrastructure/Supermarket.Infrastructure.csproj",
+        "packagesPath": "/Users/gurmindersingh/.nuget/packages/",
+        "outputPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/gurmindersingh/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Services/Supermarket.Services.csproj": {
+                "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Services/Supermarket.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

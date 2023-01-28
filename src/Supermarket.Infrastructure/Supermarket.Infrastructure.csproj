@@ -8,18 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Supermarket.Abstractions\Supermarket.Abstractions.csproj" />
-    <ProjectReference Include="..\Supermarket.DataTransferModels\Supermarket.DataTransferModels.csproj" />
-    <ProjectReference Include="..\Supermarket.Data\Supermarket.Data.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="AutoMapper" />
     <None Remove="Microsoft.Extensions.Configuration" />
     <None Remove="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Supermarket.Services\Supermarket.Services.csproj" />
   </ItemGroup>
 </Project>
