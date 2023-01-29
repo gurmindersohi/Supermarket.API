@@ -1,5 +1,6 @@
 ﻿namespace Supermarket.Services
 {
+    using System.Threading;
     using AutoMapper;
     using Supermarket.Abstractions.Repositories;
     using Supermarket.Abstractions.Services;
@@ -20,14 +21,14 @@
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<ReadDto>> ListAsync()
+        public async Task<ServiceResponse<IEnumerable<ReadDto>>> ListAsync()
         {
             var categories = await _categoryRepository.ListAsync();
             var response = _mapper.Map<IEnumerable<Category>, IEnumerable<ReadDto>>(categories);
-            return response;
+            return new ServiceResponse<IEnumerable<ReadDto>>(response);
         }
 
-        public async Task<ServiceResponse<ReadDto>> GetAsync(int id)
+        public async Task<ServiceResponse<ReadDto>> GetAsync(int id, CancellationToken cancellationToken)
         {
             var category = await _categoryRepository.FindByIdAsync(id);
             if (category == null)
@@ -37,7 +38,7 @@
             return new ServiceResponse<ReadDto>(response);
         }
 
-        public async Task<ServiceResponse<ReadDto>> SaveAsync(InsertDto insertDto)
+        public async Task<ServiceResponse<int>> SaveAsync(InsertDto insertDto, CancellationToken cancellationToken)
         {
             try
             {
@@ -45,16 +46,15 @@
                 await _categoryRepository.AddAsync(category);
                 await _unitOfWork.CompleteAsync();
 
-                var response = _mapper.Map<Category, ReadDto>(category);
-                return new ServiceResponse<ReadDto>(response);
+                return new ServiceResponse<int>(category.Id);
             }
             catch (Exception ex)
             {
-                return new ServiceResponse<ReadDto>($"An error occurred when saving the category: {ex.Message}");
+                return new ServiceResponse<int>($"An error occurred when saving the category: {ex.Message}");
             }
         }
 
-        public async Task<ServiceResponse<ReadDto>> UpdateAsync(int id, UpdateDto updateDto)
+        public async Task<ServiceResponse<ReadDto>> UpdateAsync(int id, UpdateDto updateDto, CancellationToken cancellationToken)
         {
             var existingCategory = await _categoryRepository.FindByIdAsync(id);
 
@@ -76,7 +76,7 @@
             }
         }
 
-        public async Task<ServiceResponse<int>> DeleteAsync(int id)
+        public async Task<ServiceResponse<int>> DeleteAsync(int id, CancellationToken cancellationToken)
         {
             var existingCategory = await _categoryRepository.FindByIdAsync(id);
 

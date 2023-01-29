@@ -6,14 +6,14 @@
 
     public interface ICategoryService
     {
-        Task<IEnumerable<ReadDto>> ListAsync();
+        Task<ServiceResponse<IEnumerable<ReadDto>>> ListAsync();
 
-        Task<ServiceResponse<ReadDto>> GetAsync(int id);
+        Task<ServiceResponse<ReadDto>> GetAsync(int id, CancellationToken cancellationToken);
 
-        Task<ServiceResponse<ReadDto>> SaveAsync(InsertDto insertDto);
+        Task<ServiceResponse<int>> SaveAsync(InsertDto insertDto, CancellationToken cancellationToken);
 
-        Task<ServiceResponse<ReadDto>> UpdateAsync(int id, UpdateDto updateDto);
+        Task<ServiceResponse<ReadDto>> UpdateAsync(int id, UpdateDto updateDto, CancellationToken cancellationToken);
 
-        Task<ServiceResponse<int>> DeleteAsync(int id);
+        Task<ServiceResponse<int>> DeleteAsync(int id, CancellationToken cancellationToken);
     }
 }
