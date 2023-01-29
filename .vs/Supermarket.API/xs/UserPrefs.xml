@@ -1,25 +1,23 @@
 ﻿<Properties StartupConfiguration="{E8672A0C-788E-4BE1-9552-91B2F6D4EAFF}|https">
   <MonoDevelop.Ide.ItemProperties.Supermarket.Data FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.Supermarket.Abstractions FirstBuild="True" />
   <DisabledProjects>
     <String>Supermarket.Services/Supermarket.Services.csproj</String>
   </DisabledProjects>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Supermarket.Infrastructure FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.Supermarket.Services FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.Supermarket.API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/Supermarket.Services/Program.cs">
-    <Files>
-      <File FileName="src/Supermarket.API/Program.cs" Line="1" Column="1" />
-      <File FileName="src/Supermarket.API/Controllers/CategoriesController.cs" />
-      <File FileName="src/Supermarket.Services/Program.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Supermarket.API" expanded="True" selected="True" />
+          <Node name="Supermarket.API" expanded="True">
+            <Node name="Supermarket.DataTransferModels" expanded="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>

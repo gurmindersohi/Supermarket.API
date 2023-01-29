@@ -1,0 +1,47 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Supermarket.Abstractions/1.0.0": {
+        "dependencies": {
+          "Supermarket.DataTransferModels": "1.0.0",
+          "Supermarket.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Supermarket.Abstractions.dll": {}
+        }
+      },
+      "Supermarket.DataTransferModels/1.0.0": {
+        "runtime": {
+          "Supermarket.DataTransferModels.dll": {}
+        }
+      },
+      "Supermarket.Domain/1.0.0": {
+        "runtime": {
+          "Supermarket.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Supermarket.Abstractions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Supermarket.DataTransferModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Supermarket.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

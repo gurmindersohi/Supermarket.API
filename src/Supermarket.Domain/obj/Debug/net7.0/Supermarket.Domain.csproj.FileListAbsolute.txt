@@ -1,0 +1,12 @@
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Domain/obj/Debug/net7.0/Supermarket.Domain.csproj.AssemblyReference.cache
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Domain/obj/Debug/net7.0/Supermarket.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Domain/obj/Debug/net7.0/Supermarket.Domain.AssemblyInfoInputs.cache
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Domain/obj/Debug/net7.0/Supermarket.Domain.AssemblyInfo.cs
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Domain/obj/Debug/net7.0/Supermarket.Domain.csproj.CoreCompileInputs.cache
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Domain/bin/Debug/net7.0/Supermarket.Domain.deps.json
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Domain/bin/Debug/net7.0/Supermarket.Domain.dll
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Domain/bin/Debug/net7.0/Supermarket.Domain.pdb
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Domain/obj/Debug/net7.0/Supermarket.Domain.dll
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Domain/obj/Debug/net7.0/refint/Supermarket.Domain.dll
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Domain/obj/Debug/net7.0/Supermarket.Domain.pdb
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Domain/obj/Debug/net7.0/ref/Supermarket.Domain.dll

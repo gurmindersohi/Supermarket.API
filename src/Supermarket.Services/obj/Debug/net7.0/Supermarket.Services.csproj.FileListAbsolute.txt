@@ -1,0 +1,5 @@
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Services/obj/Debug/net7.0/Supermarket.Services.csproj.AssemblyReference.cache
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Services/obj/Debug/net7.0/Supermarket.Services.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Services/obj/Debug/net7.0/Supermarket.Services.AssemblyInfoInputs.cache
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Services/obj/Debug/net7.0/Supermarket.Services.AssemblyInfo.cs
+/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Services/obj/Debug/net7.0/Supermarket.Services.csproj.CoreCompileInputs.cache
