@@ -8,9 +8,9 @@
     {
         Task<IEnumerable<ReadDto>> ListAsync();
 
-        Task<ServiceResponse<InsertDto>> SaveAsync(InsertDto insertDto);
+        Task<ServiceResponse<ReadDto>> SaveAsync(InsertDto insertDto);
 
-        Task<ServiceResponse<UpdateDto>> UpdateAsync(int id, UpdateDto updateDto);
+        Task<ServiceResponse<ReadDto>> UpdateAsync(int id, UpdateDto updateDto);
 
         Task<ServiceResponse<int>> DeleteAsync(int id);
     }

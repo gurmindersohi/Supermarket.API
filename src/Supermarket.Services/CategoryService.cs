@@ -51,7 +51,7 @@
             if (existingCategory == null)
                 return new ServiceResponse<ReadDto>("Category not found");
 
-            var category = _mapper.Map<UpdateDto, Category> (updateDto);
+            var category = _mapper.Map(updateDto, existingCategory);
 
             try
             {

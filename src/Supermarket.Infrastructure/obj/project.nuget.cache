@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "BZHG91ksJ/NW7FdtQ9WIt4fhm+Pv+wNvA+M84fdHfVkE4qC3UMd1KQDxVRz84VLE3+mHf9JX+mjLQSUm2cKlpQ==",
+  "dgSpecHash": "eG8Xdjco1aLDbzYiHijXsDnNnq5P4zvoxYpPpI6NQMRdeWC06WQQ259jnHHlxFbuhwJMMTCBoMl0xCtFNE7dzA==",
   "success": true,
   "projectFilePath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Infrastructure/Supermarket.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/Users/gurmindersingh/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/Users/gurmindersingh/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.0/automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "/Users/gurmindersingh/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/gurmindersingh/.nuget/packages/microsoft.entityframeworkcore/7.0.2/microsoft.entityframeworkcore.7.0.2.nupkg.sha512",
     "/Users/gurmindersingh/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.2/microsoft.entityframeworkcore.abstractions.7.0.2.nupkg.sha512",

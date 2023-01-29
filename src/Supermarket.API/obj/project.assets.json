@@ -18,6 +18,19 @@
           }
         }
       },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.0": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "12.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.OpenApi/7.0.2": {
         "type": "package",
         "dependencies": {
@@ -451,11 +464,27 @@
           "bin/placeholder/Supermarket.Domain.dll": {}
         }
       },
+      "Supermarket.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "Supermarket.Services": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Supermarket.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Supermarket.Infrastructure.dll": {}
+        }
+      },
       "Supermarket.Services/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "AutoMapper": "12.0.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "Microsoft.Extensions.Configuration": "7.0.0",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Supermarket.Abstractions": "1.0.0",
@@ -485,6 +514,20 @@
         "icon.png",
         "lib/netstandard2.1/AutoMapper.dll",
         "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.0": {
+      "sha512": "XCJ4E3oKrbRl1qY9Mr+7uyC0xZj1+bqQjmQRWTiTKiVuuXTny+7YFWHi20tPjwkMukLbicN6yGlDy5PZ4wyi1w==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/12.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
       ]
     },
     "Microsoft.AspNetCore.OpenApi/7.0.2": {
@@ -1318,6 +1361,11 @@
       "path": "../Supermarket.Domain/Supermarket.Domain.csproj",
       "msbuildProject": "../Supermarket.Domain/Supermarket.Domain.csproj"
     },
+    "Supermarket.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Supermarket.Infrastructure/Supermarket.Infrastructure.csproj",
+      "msbuildProject": "../Supermarket.Infrastructure/Supermarket.Infrastructure.csproj"
+    },
     "Supermarket.Services/1.0.0": {
       "type": "project",
       "path": "../Supermarket.Services/Supermarket.Services.csproj",
@@ -1326,9 +1374,9 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "AutoMapper >= 12.0.1",
       "Microsoft.AspNetCore.OpenApi >= 7.0.2",
       "Supermarket.DataTransferModels >= 1.0.0",
+      "Supermarket.Infrastructure >= 1.0.0",
       "Supermarket.Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
@@ -1361,6 +1409,9 @@
             "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/Supermarket.DataTransferModels.csproj": {
               "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.DataTransferModels/Supermarket.DataTransferModels.csproj"
             },
+            "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Infrastructure/Supermarket.Infrastructure.csproj": {
+              "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Infrastructure/Supermarket.Infrastructure.csproj"
+            },
             "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Services/Supermarket.Services.csproj": {
               "projectPath": "/Users/gurmindersingh/Documents/dev/Products/Supermarket.API/src/Supermarket.Services/Supermarket.Services.csproj"
             }
@@ -1377,10 +1428,6 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
-          "AutoMapper": {
-            "target": "Package",
-            "version": "[12.0.1, )"
-          },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[7.0.2, )"
