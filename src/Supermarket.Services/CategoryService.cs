@@ -27,6 +27,16 @@
             return response;
         }
 
+        public async Task<ServiceResponse<ReadDto>> GetAsync(int id)
+        {
+            var category = await _categoryRepository.FindByIdAsync(id);
+            if (category == null)
+                return new ServiceResponse<ReadDto>("Category not found");
+
+            var response = _mapper.Map<ReadDto>(category);
+            return new ServiceResponse<ReadDto>(response);
+        }
+
         public async Task<ServiceResponse<ReadDto>> SaveAsync(InsertDto insertDto)
         {
             try
@@ -85,7 +95,6 @@
                 return new ServiceResponse<int>($"An error occured when deleting the category: {ex.Message}");
             }
         }
-
     }
 }
 

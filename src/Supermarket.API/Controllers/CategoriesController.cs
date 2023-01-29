@@ -3,6 +3,7 @@
     using System.ComponentModel.DataAnnotations;
     using AutoMapper;
     using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Http.HttpResults;
     using Microsoft.AspNetCore.Mvc;
     using Supermarket.Abstractions.Services;
     using Supermarket.API.Extensions;
@@ -24,6 +25,21 @@
         {
             var categories = await _categoryService.ListAsync();
             return categories;
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ReadDto>> GetAsync(
+            [FromRoute] [Required] int id,
+            CancellationToken cancellationToken)
+        {
+            var response = await _categoryService.GetAsync(id);
+
+            if (!response.Success)
+            {
+                return NotFound(response.Message);
+            }
+
+            return Ok(response);
         }
 
         [HttpPost]
