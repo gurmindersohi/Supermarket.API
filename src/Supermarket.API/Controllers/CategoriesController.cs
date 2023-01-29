@@ -27,7 +27,7 @@
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetCategories()
         {
-            var response = await _categoryService.ListAsync().ConfigureAwait(false);
+            var response = await _categoryService.GetCategoriesAsync().ConfigureAwait(false);
             if (!response.Success)
             {
                 return BadRequest(response.Message);
@@ -41,11 +41,11 @@
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<ReadDto>> GetCategory(
+        public async Task<IActionResult> GetCategory(
             [FromRoute][Required][Range(1, int.MaxValue)] int id,
             CancellationToken cancellationToken)
         {
-            var response = await _categoryService.GetAsync(id, cancellationToken).ConfigureAwait(false);
+            var response = await _categoryService.GetCategoryAsync(id, cancellationToken).ConfigureAwait(false);
 
             if (!response.Success)
             {
@@ -67,7 +67,7 @@
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
 
-            var response = await _categoryService.SaveAsync(insertDto, cancellationToken).ConfigureAwait(false);
+            var response = await _categoryService.AddCategoryAsync(insertDto, cancellationToken).ConfigureAwait(false);
 
             if (!response.Success)
                 return BadRequest(response.Message);
@@ -89,7 +89,7 @@
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
 
-            var response = await _categoryService.UpdateAsync(id, updateDto, cancellationToken).ConfigureAwait(false);
+            var response = await _categoryService.UpdateCategoryAsync(id, updateDto, cancellationToken).ConfigureAwait(false);
 
             if (!response.Success)
                 return BadRequest(response.Message);
@@ -106,7 +106,7 @@
             [FromRoute][Required][Range(1, int.MaxValue)] int id,
             CancellationToken cancellationToken)
         {
-            var response = await _categoryService.DeleteAsync(id, cancellationToken).ConfigureAwait(false);
+            var response = await _categoryService.DeleteCategoryAsync(id, cancellationToken).ConfigureAwait(false);
 
             if (!response.Success)
                 return BadRequest(response.Message);

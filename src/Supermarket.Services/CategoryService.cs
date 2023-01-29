@@ -21,16 +21,16 @@
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<IEnumerable<ReadDto>>> ListAsync()
+        public async Task<ServiceResponse<IEnumerable<ReadDto>>> GetCategoriesAsync()
         {
-            var categories = await _categoryRepository.ListAsync();
+            var categories = await _categoryRepository.ListAsync().ConfigureAwait(false);
             var response = _mapper.Map<IEnumerable<Category>, IEnumerable<ReadDto>>(categories);
             return new ServiceResponse<IEnumerable<ReadDto>>(response);
         }
 
-        public async Task<ServiceResponse<ReadDto>> GetAsync(int id, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<ReadDto>> GetCategoryAsync(int id, CancellationToken cancellationToken)
         {
-            var category = await _categoryRepository.FindByIdAsync(id);
+            var category = await _categoryRepository.FindByIdAsync(id).ConfigureAwait(false);
             if (category == null)
                 return new ServiceResponse<ReadDto>("Category not found");
 
@@ -38,13 +38,13 @@
             return new ServiceResponse<ReadDto>(response);
         }
 
-        public async Task<ServiceResponse<int>> SaveAsync(InsertDto insertDto, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<int>> AddCategoryAsync(InsertDto insertDto, CancellationToken cancellationToken)
         {
             try
             {
                 var category = _mapper.Map<Category>(insertDto);
-                await _categoryRepository.AddAsync(category);
-                await _unitOfWork.CompleteAsync();
+                await _categoryRepository.AddAsync(category).ConfigureAwait(false);
+                await _unitOfWork.CompleteAsync().ConfigureAwait(false);
 
                 return new ServiceResponse<int>(category.Id);
             }
@@ -54,9 +54,9 @@
             }
         }
 
-        public async Task<ServiceResponse<ReadDto>> UpdateAsync(int id, UpdateDto updateDto, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<ReadDto>> UpdateCategoryAsync(int id, UpdateDto updateDto, CancellationToken cancellationToken)
         {
-            var existingCategory = await _categoryRepository.FindByIdAsync(id);
+            var existingCategory = await _categoryRepository.FindByIdAsync(id).ConfigureAwait(false);
 
             if (existingCategory == null)
                 return new ServiceResponse<ReadDto>("Category not found");
@@ -66,7 +66,7 @@
             try
             {
                 _categoryRepository.Update(category);
-                await _unitOfWork.CompleteAsync();
+                await _unitOfWork.CompleteAsync().ConfigureAwait(false);
                 var response = _mapper.Map<Category, ReadDto>(category);
                 return new ServiceResponse<ReadDto>(response);
             }
@@ -76,9 +76,9 @@
             }
         }
 
-        public async Task<ServiceResponse<int>> DeleteAsync(int id, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<int>> DeleteCategoryAsync(int id, CancellationToken cancellationToken)
         {
-            var existingCategory = await _categoryRepository.FindByIdAsync(id);
+            var existingCategory = await _categoryRepository.FindByIdAsync(id).ConfigureAwait(false);
 
             if (existingCategory == null)
                 return new ServiceResponse<int>("Category not found");
@@ -86,7 +86,7 @@
             try
             {
                 _categoryRepository.Remove(existingCategory);
-                await _unitOfWork.CompleteAsync();
+                await _unitOfWork.CompleteAsync().ConfigureAwait(false);
 
                 return new ServiceResponse<int>();
             }
