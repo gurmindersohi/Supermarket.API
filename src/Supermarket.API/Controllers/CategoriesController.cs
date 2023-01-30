@@ -3,6 +3,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Net.Mime;
     using AutoMapper;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Http.HttpResults;
     using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,7 @@
 
     [ApiController]
     [Route(ApiRoutes.Categories.BaseRoute)]
+    [Authorize]
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
