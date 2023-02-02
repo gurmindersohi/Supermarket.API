@@ -9,11 +9,9 @@
   <ItemGroup>
     <None Remove="Categories\" />
     <None Remove="Response\" />
-    <None Remove="Authentication\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Categories\" />
     <Folder Include="Response\" />
-    <Folder Include="Authentication\" />
   </ItemGroup>
 </Project>

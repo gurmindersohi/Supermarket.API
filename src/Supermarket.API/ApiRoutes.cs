@@ -3,11 +3,6 @@ namespace Supermarket.API
 {
     internal static class ApiRoutes
     {
-        internal static class Authentication
-        {
-            public const string BaseRoute = "api/authentication";
-        }
-
         internal static class Categories
         {
             public const string BaseRoute = "api/categories";
