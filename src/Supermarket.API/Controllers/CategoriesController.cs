@@ -55,7 +55,7 @@
 
             if (!response.Success)
             {
-                return NotFound(response.Message);
+                return NotFound(response);
             }
 
             return Ok(response);

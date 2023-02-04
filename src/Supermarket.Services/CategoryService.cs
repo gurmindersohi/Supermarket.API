@@ -8,6 +8,7 @@
     using Supermarket.DataTransferModels.Response;
     using Supermarket.Domain.Entities;
     using Constants;
+    using System.Net;
 
     public class CategoryService : ICategoryService
     {
@@ -35,17 +36,17 @@
                 name).ConfigureAwait(false);
 
             var response = _mapper.Map<PaginatedResult<Category>, PaginatedResult<SearchDto>>(categories);
-            return new ServiceResponse<PaginatedResult<SearchDto>>(response);
+            return new ServiceResponse<PaginatedResult<SearchDto>>(response, HttpStatusCode.OK);
         }
 
         public async Task<ServiceResponse<ReadDto>> GetCategoryAsync(int id, CancellationToken cancellationToken)
         {
             var category = await _categoryRepository.FindByIdAsync(id).ConfigureAwait(false);
             if (category == null)
-                return new ServiceResponse<ReadDto>("Category not found");
+                return new ServiceResponse<ReadDto>("Category not found", HttpStatusCode.NotFound);
 
             var response = _mapper.Map<ReadDto>(category);
-            return new ServiceResponse<ReadDto>(response);
+            return new ServiceResponse<ReadDto>(response, HttpStatusCode.OK);
         }
 
         public async Task<ServiceResponse<int>> AddCategoryAsync(InsertDto insertDto, CancellationToken cancellationToken)
@@ -56,11 +57,11 @@
                 await _categoryRepository.AddAsync(category).ConfigureAwait(false);
                 await _unitOfWork.CompleteAsync().ConfigureAwait(false);
 
-                return new ServiceResponse<int>(category.Id);
+                return new ServiceResponse<int>(category.Id, HttpStatusCode.Created);
             }
             catch (Exception ex)
             {
-                return new ServiceResponse<int>($"An error occurred when saving the category: {ex.Message}");
+                return new ServiceResponse<int>($"An error occurred when saving the category: {ex.Message}", HttpStatusCode.BadRequest);
             }
         }
 
@@ -69,7 +70,7 @@
             var existingCategory = await _categoryRepository.FindByIdAsync(id).ConfigureAwait(false);
 
             if (existingCategory == null)
-                return new ServiceResponse<ReadDto>("Category not found");
+                return new ServiceResponse<ReadDto>("Category not found", HttpStatusCode.NotFound);
 
             var category = _mapper.Map(updateDto, existingCategory);
 
@@ -78,11 +79,11 @@
                 _categoryRepository.Update(category);
                 await _unitOfWork.CompleteAsync().ConfigureAwait(false);
                 var response = _mapper.Map<Category, ReadDto>(category);
-                return new ServiceResponse<ReadDto>(response);
+                return new ServiceResponse<ReadDto>(response, HttpStatusCode.OK);
             }
             catch (Exception ex)
             {
-                return new ServiceResponse<ReadDto>($"An error occurred when updating the category {ex.Message}");
+                return new ServiceResponse<ReadDto>($"An error occurred when updating the category {ex.Message}", HttpStatusCode.BadRequest);
             }
         }
 
@@ -91,7 +92,7 @@
             var existingCategory = await _categoryRepository.FindByIdAsync(id).ConfigureAwait(false);
 
             if (existingCategory == null)
-                return new ServiceResponse<int>("Category not found");
+                return new ServiceResponse<int>("Category not found", HttpStatusCode.NotFound);
 
             try
             {
@@ -102,7 +103,7 @@
             }
             catch (Exception ex)
             {
-                return new ServiceResponse<int>($"An error occured when deleting the category: {ex.Message}");
+                return new ServiceResponse<int>($"An error occured when deleting the category: {ex.Message}", HttpStatusCode.BadRequest);
             }
         }
     }
