@@ -61,7 +61,7 @@
             }
             catch (Exception ex)
             {
-                return new ServiceResponse<int>($"An error occurred when saving the category: {ex.Message}", HttpStatusCode.BadRequest);
+                return new ServiceResponse<int>(ex.Message, HttpStatusCode.BadRequest);
             }
         }
 

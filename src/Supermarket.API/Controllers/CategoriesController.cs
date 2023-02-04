@@ -76,9 +76,9 @@
             var response = await _categoryService.AddCategoryAsync(insertDto, cancellationToken).ConfigureAwait(false);
 
             if (!response.Success)
-                return BadRequest(response.Message);
+                return BadRequest(response);
 
-            return CreatedAtRoute(nameof(GetCategory), new { id = response.Data }, response.Data);
+            return CreatedAtRoute(nameof(GetCategory), new { id = response.Data }, response);
         }
 
         [HttpPut(ApiRoutes.Categories.Update, Name = nameof(UpdateCategory))]
