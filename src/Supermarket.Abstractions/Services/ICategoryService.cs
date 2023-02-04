@@ -5,7 +5,7 @@
 
     public interface ICategoryService
     {
-        Task<ServiceResponse<PaginatedResult<ReadDto>>> GetCategoriesAsync(
+        Task<ServiceResponse<PaginatedResult<SearchDto>>> GetCategoriesAsync(
             int limit = 10,
             int offset = 0,
             string name = "");

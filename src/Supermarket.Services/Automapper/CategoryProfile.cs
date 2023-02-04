@@ -11,7 +11,9 @@
 		{
 			CreateMap<Category, ReadDto>();
 
-            CreateMap<PaginatedResult<Category>, PaginatedResult<ReadDto>>();
+            CreateMap<Category, SearchDto>();
+
+            CreateMap<PaginatedResult<Category>, PaginatedResult<SearchDto>>();
 
             CreateMap<InsertDto, Category>(MemberList.Source);
 

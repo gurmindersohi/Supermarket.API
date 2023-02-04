@@ -1,7 +1,7 @@
 ﻿namespace Supermarket.DataTransferModels.Categories
 {
-	public class ReadDto : InsertDto
-	{
-	}
+    public class SearchDto : ReadDto
+    {
+    }
 }
 

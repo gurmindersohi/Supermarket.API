@@ -24,7 +24,7 @@
         }
 
         [HttpGet(Name = nameof(GetCategories))]
-        [ProducesResponseType(typeof(ReadDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SearchDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetCategories(int limit = 10, int offset = 0, string name = "")
@@ -33,9 +33,10 @@
                 limit,
                 offset,
                 name).ConfigureAwait(false);
+
             if (!response.Success)
             {
-                return BadRequest(response.Message);
+                return BadRequest(response);
             }
 
             return Ok(response);

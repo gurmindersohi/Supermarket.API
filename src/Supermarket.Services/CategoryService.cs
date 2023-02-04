@@ -21,7 +21,7 @@
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<PaginatedResult<ReadDto>>> GetCategoriesAsync(
+        public async Task<ServiceResponse<PaginatedResult<SearchDto>>> GetCategoriesAsync(
             int limit = 10,
             int offset = 0,
             string name = "")
@@ -31,8 +31,8 @@
                 offset,
                 name).ConfigureAwait(false);
 
-            var response = _mapper.Map<PaginatedResult<Category>, PaginatedResult<ReadDto>>(categories);
-            return new ServiceResponse<PaginatedResult<ReadDto>>(response);
+            var response = _mapper.Map<PaginatedResult<Category>, PaginatedResult<SearchDto>>(categories);
+            return new ServiceResponse<PaginatedResult<SearchDto>>(response);
         }
 
         public async Task<ServiceResponse<ReadDto>> GetCategoryAsync(int id, CancellationToken cancellationToken)
