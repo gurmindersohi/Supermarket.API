@@ -19,6 +19,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Supermarket.Abstractions\Supermarket.Abstractions.csproj" />
+    <ProjectReference Include="..\Supermarket.DataTransferModels\Supermarket.DataTransferModels.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />

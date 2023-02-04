@@ -2,10 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Threading.Tasks;
     using Microsoft.EntityFrameworkCore;
     using Supermarket.Abstractions.Repositories;
     using Supermarket.Data.Contexts;
+    using Supermarket.DataTransferModels.Response;
     using Supermarket.Domain.Entities;
 
     public class CategoryRepository : BaseRepository, ICategoryRepository
@@ -14,9 +16,25 @@
         {
         }
 
-        public async Task<IEnumerable<Category>> ListAsync()
+        public async Task<PaginatedResult<Category>> GetAsync(
+            int limit = 10,
+            int offset = 0,
+            string name = "")
         {
-            return await _context.Categories.ToListAsync();
+            var categories = _context.Categories
+            .Where(p => (string.IsNullOrEmpty(name) || p.Name.Contains(name)));
+
+            int totalCount = categories.Count();
+
+            var results = await categories.Skip(offset).Take(limit).ToListAsync().ConfigureAwait(false);
+
+            return new PaginatedResult<Category>
+            {
+                Data = results,
+                Limit = limit,
+                Offset = offset,
+                TotalCount = totalCount
+            };
         }
 
         public async Task AddAsync(Category category)

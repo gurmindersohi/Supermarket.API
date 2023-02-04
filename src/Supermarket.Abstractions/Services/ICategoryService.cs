@@ -5,7 +5,10 @@
 
     public interface ICategoryService
     {
-        Task<ServiceResponse<IEnumerable<ReadDto>>> GetCategoriesAsync();
+        Task<ServiceResponse<PaginatedResult<ReadDto>>> GetCategoriesAsync(
+            int limit = 10,
+            int offset = 0,
+            string name = "");
 
         Task<ServiceResponse<ReadDto>> GetCategoryAsync(int id, CancellationToken cancellationToken);
 

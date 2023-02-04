@@ -27,9 +27,12 @@
         [ProducesResponseType(typeof(ReadDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetCategories()
+        public async Task<IActionResult> GetCategories(int limit = 10, int offset = 0, string name = "")
         {
-            var response = await _categoryService.GetCategoriesAsync().ConfigureAwait(false);
+            var response = await _categoryService.GetCategoriesAsync(
+                limit,
+                offset,
+                name).ConfigureAwait(false);
             if (!response.Success)
             {
                 return BadRequest(response.Message);

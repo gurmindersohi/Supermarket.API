@@ -1,11 +1,15 @@
 ﻿namespace Supermarket.Abstractions.Repositories
 {
     using System;
+    using Supermarket.DataTransferModels.Response;
     using Supermarket.Domain.Entities;
 
     public interface ICategoryRepository
 	{
-        Task<IEnumerable<Category>> ListAsync();
+        Task<PaginatedResult<Category>> GetAsync(
+            int limit = 10,
+            int offset = 0,
+            string name = "");
 
         Task AddAsync(Category category);
 

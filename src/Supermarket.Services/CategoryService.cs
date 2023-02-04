@@ -21,11 +21,18 @@
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<IEnumerable<ReadDto>>> GetCategoriesAsync()
+        public async Task<ServiceResponse<PaginatedResult<ReadDto>>> GetCategoriesAsync(
+            int limit = 10,
+            int offset = 0,
+            string name = "")
         {
-            var categories = await _categoryRepository.ListAsync().ConfigureAwait(false);
-            var response = _mapper.Map<IEnumerable<Category>, IEnumerable<ReadDto>>(categories);
-            return new ServiceResponse<IEnumerable<ReadDto>>(response);
+            var categories = await _categoryRepository.GetAsync(
+                limit,
+                offset,
+                name).ConfigureAwait(false);
+
+            var response = _mapper.Map<PaginatedResult<Category>, PaginatedResult<ReadDto>>(categories);
+            return new ServiceResponse<PaginatedResult<ReadDto>>(response);
         }
 
         public async Task<ServiceResponse<ReadDto>> GetCategoryAsync(int id, CancellationToken cancellationToken)
