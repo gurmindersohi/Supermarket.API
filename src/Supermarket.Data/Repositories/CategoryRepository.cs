@@ -9,7 +9,6 @@
     using Supermarket.Data.Contexts;
     using Supermarket.DataTransferModels.Response;
     using Supermarket.Domain.Entities;
-    using Constants;
 
     public class CategoryRepository : BaseRepository, ICategoryRepository
     {
@@ -23,11 +22,9 @@
             string name = "")
         {
             var categories = _context.Categories
-            .Where(p => (string.IsNullOrEmpty(name) || p.Name.Contains(name)));
+            .Where(p => (string.IsNullOrWhiteSpace(name) || p.Name.ToLower().Contains(name.ToLower())));
 
             int totalCount = categories.Count();
-
-            limit = Math.Min(limit, Constants.MaxLimit);
 
             var results = await categories.Skip(offset).Take(limit).ToListAsync().ConfigureAwait(false);
 

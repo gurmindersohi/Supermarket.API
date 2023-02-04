@@ -21,8 +21,19 @@
 
             builder.Entity<Category>().HasData
                 (
-                new Category { Id = 100, Name = "Fruits and Vegetables" },
-                new Category { Id = 101, Name = "Diary" }
+                new Category { Id = 101, Name = "Diary" },
+                new Category { Id = 102, Name = "Deli" },
+                new Category { Id = 103, Name = "Electronics" },
+                new Category { Id = 104, Name = "Fashion" },
+                new Category { Id = 105, Name = "Home goods" },
+                new Category { Id = 106, Name = "Beauty" },
+                new Category { Id = 107, Name = "Sports and outdoors" },
+                new Category { Id = 108, Name = "Food and grocery" },
+                new Category { Id = 109, Name = "Health and wellness" },
+                new Category { Id = 110, Name = "Toys and games" },
+                new Category { Id = 111, Name = "Automotive" },
+                new Category { Id = 112, Name = "Books and media" },
+                new Category { Id = 113, Name = "Fruits and Vegetables" }
                 );
 
             builder.Entity<Product>().ToTable("Products");

@@ -7,6 +7,7 @@
     using Supermarket.DataTransferModels.Categories;
     using Supermarket.DataTransferModels.Response;
     using Supermarket.Domain.Entities;
+    using Constants;
 
     public class CategoryService : ICategoryService
     {
@@ -26,6 +27,8 @@
             int offset = 0,
             string name = "")
         {
+            limit = Math.Min(limit, Constants.Constants.GetMaxLimit());
+
             var categories = await _categoryRepository.GetAsync(
                 limit,
                 offset,
