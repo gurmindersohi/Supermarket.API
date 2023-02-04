@@ -57,7 +57,7 @@
                 await _categoryRepository.AddAsync(category).ConfigureAwait(false);
                 await _unitOfWork.CompleteAsync().ConfigureAwait(false);
 
-                return new ServiceResponse<int>(category.Id, HttpStatusCode.Created);
+                return new CreatedResponse<int>(category.Id, $"api/category/{category.Id}");
             }
             catch (Exception ex)
             {
